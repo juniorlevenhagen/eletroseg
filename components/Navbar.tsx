@@ -13,36 +13,41 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-zinc-200 shadow-md w-full fixed top-0 left-0 z-50">
+    <nav className="bg-[#2C054A] shadow-md w-full fixed top-0 left-0 z-50 border-b border-purple-900/50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Image src="/images/logo.svg" alt="Logo" width={100} height={50} />
+          {/* Logo com container de contraste inteligente */}
+          <div className="flex-shrink-0 bg-white/30 px-3 py-1.5 rounded-xl shadow-sm">
+            <Image
+              src="/images/logo_housefix.svg"
+              alt="Logo"
+              width={120}
+              height={100}
+            />
           </div>
 
           {/* Menu Desktop */}
           <ul className="hidden md:flex space-x-8">
-            <li className="font-normal text-zinc-600 hover:text-blue-950 hover:underline hover:underline-offset-8">
+            <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
               <a href="#services">Serviços</a>
             </li>
-            <li className="font-normal text-zinc-600 hover:text-blue-950 hover:underline hover:underline-offset-8">
+            <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
               <a href="#security">Segurança</a>
             </li>
-            <li className="font-normal text-zinc-600 hover:text-blue-950 hover:underline hover:underline-offset-8">
+            <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
               <a href="#projects">Projetos</a>
             </li>
-            <li className="font-normal text-zinc-600 hover:text-blue-950 hover:underline hover:underline-offset-8">
+            <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
               <a href="#testimonials">Depoimentos</a>
             </li>
-            <li className="font-normal text-zinc-600 hover:text-blue-950 hover:underline hover:underline-offset-8">
+            <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
               <a href="#contact">Contato</a>
             </li>
           </ul>
 
           {/* Botão de Ação (Desktop) */}
           <div className="hidden md:flex">
-            <button className="bg-blue-950 text-white py-2 px-4 rounded hover:bg-blue-800 transition-colors">
+            <button className="bg-[#FFCC00] text-[#361254] rounded-md font-semibold text-sm py-2 px-4 hover:bg-[#F1C100] transition-colors cursor-pointer shadow-sm">
               Ligar Emergencial
             </button>
           </div>
@@ -52,7 +57,7 @@ const Navbar: React.FC = () => {
             <button
               onClick={toggleMenu}
               type="button"
-              className="text-zinc-600 hover:text-blue-950 focus:outline-none"
+              className="text-white hover:text-[#FFE08B] focus:outline-none"
               aria-label="Abrir menu"
             >
               <svg
@@ -84,37 +89,37 @@ const Navbar: React.FC = () => {
 
         {/* Menu Dropdown (Mobile) */}
         {isOpen && (
-          <div className="md:hidden pb-4 pt-2 border-t border-zinc-300">
-            <ul className="flex flex-col space-y-3">
-              <li className="font-normal text-zinc-600 hover:text-blue-950">
+          <div className="md:hidden pb-6 pt-3 border-t border-purple-800 bg-[#2C054A]">
+            <ul className="flex flex-col space-y-4 px-2">
+              <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
                 <a href="#services" onClick={() => setIsOpen(false)}>
                   Serviços
                 </a>
               </li>
-              <li className="font-normal text-zinc-600 hover:text-blue-950">
+              <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
                 <a href="#security" onClick={() => setIsOpen(false)}>
                   Segurança
                 </a>
               </li>
-              <li className="font-normal text-zinc-600 hover:text-blue-950">
+              <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
                 <a href="#projects" onClick={() => setIsOpen(false)}>
                   Projetos
                 </a>
               </li>
-              <li className="font-normal text-zinc-600 hover:text-blue-950">
+              <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
                 <a href="#testimonials" onClick={() => setIsOpen(false)}>
                   Depoimentos
                 </a>
               </li>
-              <li className="font-normal text-zinc-600 hover:text-blue-950">
+              <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
                 <a href="#contact" onClick={() => setIsOpen(false)}>
                   Contato
                 </a>
               </li>
             </ul>
-            <div className="mt-4">
+            <div className="mt-5 px-2">
               <button
-                className="w-full bg-blue-950 text-white py-2 px-4 rounded hover:bg-blue-800 transition-colors"
+                className="w-full bg-[#FFCC00] text-[#361254] py-2.5 px-4 rounded font-semibold hover:bg-[#F1C100] transition-colors text-center"
                 onClick={() => setIsOpen(false)}
               >
                 Ligar Emergencial
