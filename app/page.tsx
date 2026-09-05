@@ -1,8 +1,9 @@
-
-
 import Navbar from "../components/Navbar";
 import Head from "../components/Head";
 import Services from "../components/Services";
+import WhyChooseUs from "../components/WhyChooseUs";
+import ServiceArea from "../components/ServiceArea";
+import Faq from "../components/Faq";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -11,6 +12,9 @@ export default function Home() {
       <Navbar />
       <Head />
       <Services />
+      <WhyChooseUs />
+      <ServiceArea />
+      <Faq />
       <Footer />
     </div>
   );

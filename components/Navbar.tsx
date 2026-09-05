@@ -16,13 +16,13 @@ const Navbar: React.FC = () => {
     <nav className="bg-[#2C054A] shadow-md w-full fixed top-0 left-0 z-50 border-b border-purple-900/50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          {/* Logo com container de contraste inteligente */}
           <div className="flex-shrink-0 bg-white/30 px-3 py-1.5 rounded-xl shadow-sm">
             <Image
               src="/images/logo_housefix.svg"
               alt="Logo"
-              width={120}
+              width={200}
               height={100}
+              style={{ width: "150px", height: "auto" }}
             />
           </div>
 
@@ -32,27 +32,29 @@ const Navbar: React.FC = () => {
               <a href="#services">Serviços</a>
             </li>
             <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
-              <a href="#security">Segurança</a>
+              <a href="#why-choose-us">Diferenciais</a>
             </li>
             <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
-              <a href="#projects">Projetos</a>
+              <a href="#service-area">Atendimento</a>
             </li>
             <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
-              <a href="#testimonials">Depoimentos</a>
-            </li>
-            <li className="font-semibold text-white hover:text-[#FFE08B] hover:underline hover:underline-offset-8">
-              <a href="#contact">Contato</a>
+              <a href="#faq">Dúvidas</a>
             </li>
           </ul>
 
-          {/* Botão de Ação (Desktop) */}
+          {/* CTA Desktop */}
           <div className="hidden md:flex">
-            <button className="bg-[#FFCC00] text-[#361254] rounded-md font-semibold text-sm py-2 px-4 hover:bg-[#F1C100] transition-colors cursor-pointer shadow-sm">
-              Ligar Emergencial
-            </button>
+            <a
+              href="https://wa.me/5531998281550?text=Olá!%20Preciso%20de%20atendimento%20rápido%20para%20um%20serviço%20elétrico."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FFCC00] text-[#361254] rounded-md font-semibold text-sm py-2 px-4 hover:bg-[#F1C100] transition-colors cursor-pointer shadow-sm flex items-center justify-center gap-2"
+            >
+              Atendimento Rápido
+            </a>
           </div>
 
-          {/* Botão Hambúrguer (Mobile) */}
+          {/* Botão do Menu Mobile */}
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
@@ -65,7 +67,6 @@ const Navbar: React.FC = () => {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 {isOpen ? (
                   <path
@@ -87,7 +88,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Menu Dropdown (Mobile) */}
+        {/* Menu Mobile */}
         {isOpen && (
           <div className="md:hidden pb-6 pt-3 border-t border-purple-800 bg-[#2C054A]">
             <ul className="flex flex-col space-y-4 px-2">
@@ -97,33 +98,31 @@ const Navbar: React.FC = () => {
                 </a>
               </li>
               <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
-                <a href="#security" onClick={() => setIsOpen(false)}>
-                  Segurança
+                <a href="#why-choose-us" onClick={() => setIsOpen(false)}>
+                  Diferenciais
                 </a>
               </li>
               <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
-                <a href="#projects" onClick={() => setIsOpen(false)}>
-                  Projetos
+                <a href="#service-area" onClick={() => setIsOpen(false)}>
+                  Atendimento
                 </a>
               </li>
               <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
-                <a href="#testimonials" onClick={() => setIsOpen(false)}>
-                  Depoimentos
-                </a>
-              </li>
-              <li className="font-medium text-purple-100 hover:text-[#FFE08B]">
-                <a href="#contact" onClick={() => setIsOpen(false)}>
-                  Contato
+                <a href="#faq" onClick={() => setIsOpen(false)}>
+                  Dúvidas
                 </a>
               </li>
             </ul>
             <div className="mt-5 px-2">
-              <button
-                className="w-full bg-[#FFCC00] text-[#361254] py-2.5 px-4 rounded font-semibold hover:bg-[#F1C100] transition-colors text-center"
+              <a
+                href="https://wa.me/5531998281550?text=Olá!%20Preciso%20de%20atendimento%20rápido%20para%20um%20serviço%20elétrico."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-[#FFCC00] text-[#361254] py-2.5 px-4 rounded font-semibold hover:bg-[#F1C100] transition-colors text-center"
                 onClick={() => setIsOpen(false)}
               >
-                Ligar Emergencial
-              </button>
+                Atendimento Rápido
+              </a>
             </div>
           </div>
         )}
