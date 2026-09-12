@@ -1,3 +1,4 @@
+// src/app/sitemap.ts
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/config/siteConfig";
 
@@ -6,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: siteConfig.url,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
+      changeFrequency: "monthly",
+      priority: 1,
     },
   ];
 }

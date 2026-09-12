@@ -1,5 +1,3 @@
-// src/app/layout.tsx
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -55,14 +53,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  // Dados estruturados Schema.org para ranqueamento local no Google
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  // Dados estruturados Schema.org otimizados para SEO local
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Electrician",
     name: siteConfig.shortName,
     image: `${siteConfig.url}/images/logo_FixHouse.svg`,
-    telephone: siteConfig.whatsappFormatted,
+    telephone: siteConfig.whatsappFormatted, // Garanta que esteja no formato +5531...
     url: siteConfig.url,
     address: {
       "@type": "PostalAddress",
@@ -70,7 +72,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       addressRegion: "MG",
       addressCountry: "BR",
     },
-    areaServed: "Belo Horizonte e Região Metropolitana",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -19.9167,
+      longitude: -43.9345,
+    },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Belo Horizonte",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Região Metropolitana de Belo Horizonte",
+      },
+    ],
     priceRange: "$$",
   };
 
@@ -86,7 +102,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="min-h-full flex flex-col">
-        {/* Botão flutuante do WhatsApp visível em todas as páginas */}
+        {/* Botão flutuante do WhatsApp */}
         <WhatsAppButton />
 
         {children}
