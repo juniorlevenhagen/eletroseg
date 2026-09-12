@@ -23,7 +23,7 @@ export default function Head() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a
-                href="https://wa.me/5531998281550?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
+                href="https://wa.me/5531998363024?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#FFCC00] hover:bg-[#e6b800] text-[#2C054A] font-bold py-3.5 px-6 shadow-md transition-all duration-300 text-center"

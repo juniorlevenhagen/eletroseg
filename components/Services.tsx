@@ -95,7 +95,7 @@ export default function Services() {
                 </p>
 
                 <a
-                  href="https://wa.me/5531998281550?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20serviços."
+                  href="https://wa.me/5531998363024?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20serviços."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative inline-flex items-center gap-2 text-[#421F60] font-semibold hover:text-[#6B3FA0] transition-colors duration-300"

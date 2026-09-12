@@ -184,7 +184,7 @@ export default function Footer() {
                 <li className="flex gap-3 items-center">
                   <Phone size={20} className="text-[#FFCC00] flex-shrink-0" />
                   <a
-                    href="tel:+5531998281550"
+                    href="tel:+5531998363024"
                     className="text-purple-100 hover:text-white transition-colors duration-300"
                   >
                     +55 (31) 99828-1550
@@ -202,7 +202,7 @@ export default function Footer() {
       <div className="w-full">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-purple-100 text-sm">
-            <p>&copy; {currentYear} Housefix. Todos os direitos reservados.</p>
+            <p>&copy; {currentYear} FixHouse. Todos os direitos reservados.</p>
             <div className="flex gap-6 text-xs">
               <button
                 onClick={() => setShowTermos(true)}
@@ -273,7 +273,7 @@ export default function Footer() {
             </div>
             <div className="p-6 overflow-y-auto text-sm leading-relaxed space-y-4">
               <p className="font-semibold text-[#2C054A]">
-                Bem-vindo à Housefix Eletricista.
+                Bem-vindo à FixHouse Eletricista.
               </p>
               <p>
                 Ao utilizar nosso site e serviços, você concorda com os termos
@@ -283,7 +283,7 @@ export default function Footer() {
                 1. Serviços Prestados
               </h4>
               <p>
-                A Housefix atua na prestação de serviços de instalações e
+                A FixHouse atua na prestação de serviços de instalações e
                 manutenções elétricas residenciais e comerciais em Belo
                 Horizonte e Região Metropolitana.
               </p>
@@ -358,7 +358,7 @@ export default function Footer() {
               <p>
                 Seus dados de contato são utilizados estritamente para o
                 agendamento de visitas, envio de orçamentos e comunicação direta
-                entre a Housefix e você.
+                entre a FixHouse e você.
               </p>
               <h4 className="font-bold text-[#2C054A] pt-2">
                 3. Compartilhamento

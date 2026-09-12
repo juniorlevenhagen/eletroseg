@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="w-full py-12 sm:py-20 bg-gradient-to-b from-purple-50 via-white to-white overflow-hidden scroll-mt-24"
+      className="w-full py-12 sm:py-20 bg-white overflow-hidden scroll-mt-24"
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -70,7 +70,7 @@ export default function WhyChooseUs() {
           <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[800px] flex items-center justify-center group">
             <Image
               src="/images/rose.svg"
-              alt="Eletricista Housefix"
+              alt="Eletricista FixHouse"
               fill
               priority
               className="object-contain drop-shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_15px_30px_rgba(66,31,96,0.65)] p-2"
@@ -82,7 +82,7 @@ export default function WhyChooseUs() {
           <div className="order-1 lg:order-2 flex flex-col justify-center">
             <div className="mb-6 sm:mb-10 text-center lg:text-left">
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#2C054A] mb-3 sm:mb-4">
-                Por que escolher a Housefix?
+                Por que escolher a FixHouse?
               </h2>
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
                 Compromisso com o seu bem-estar, honestidade no diagnóstico e
@@ -120,7 +120,7 @@ export default function WhyChooseUs() {
             {/* Botão Call to Action (Totalmente Centralizado) */}
             <div className="mt-8 sm:mt-10 flex justify-center w-full">
               <a
-                href="https://wa.me/5531998281550?text=Olá!%20Quero%20solicitar%20um%20orçamento."
+                href="https://wa.me/5531998363024?text=Olá!%20Quero%20solicitar%20um%20orçamento."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#421F60] hover:bg-[#32174a] text-white font-semibold py-3.5 px-8 sm:px-12 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base text-center"

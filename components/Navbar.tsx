@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
           {/* CTA Desktop */}
           <div className="hidden md:flex">
             <a
-              href="https://wa.me/5531998281550?text=Olá!%20Preciso%20de%20atendimento%20rápido%20para%20um%20serviço%20elétrico."
+              href="https://wa.me/5531998363024?text=Olá!%20Preciso%20de%20atendimento%20rápido%20para%20um%20serviço%20elétrico."
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#FFCC00] text-[#361254] rounded-md font-semibold text-sm py-2 px-4 hover:bg-[#F1C100] transition-colors cursor-pointer shadow-sm flex items-center justify-center gap-2"
@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
             </ul>
             <div className="mt-5 px-2">
               <a
-                href="https://wa.me/5531998281550?text=Olá!%20Preciso%20de%20atendimento%20rápido%20para%20um%20serviço%20elétrico."
+                href="https://wa.me/5531998363024?text=Olá!%20Preciso%20de%20atendimento%20rápido%20para%20um%20serviço%20elétrico."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-[#FFCC00] text-[#361254] py-2.5 px-4 rounded font-semibold hover:bg-[#F1C100] transition-colors text-center"
