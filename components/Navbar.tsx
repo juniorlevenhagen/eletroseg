@@ -19,10 +19,11 @@ const Navbar: React.FC = () => {
           <div className="flex-shrink-0 bg-white/30 px-3 py-1.5 rounded-xl shadow-sm">
             <Image
               src="/images/logo_housefix.svg"
-              alt="Logo"
-              width={200}
-              height={100}
-              style={{ width: "150px", height: "auto" }}
+              alt="Logo FixHouse"
+              width={150}
+              height={75}
+              priority
+              className="w-[150px] h-auto"
             />
           </div>
 

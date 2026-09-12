@@ -38,9 +38,10 @@ export default function Footer() {
                 <Image
                   src="/images/g336168.svg"
                   alt="Logo Eletricista"
-                  width={500}
-                  height={300}
-                  className="w-[200px] h-auto" // Ensure h-auto is present if width is set
+                  width={200}
+                  height={120}
+                  priority
+                  className="w-[200px] h-auto"
                 />
               </div>
               <p className="text-purple-100 mb-6 leading-relaxed">
