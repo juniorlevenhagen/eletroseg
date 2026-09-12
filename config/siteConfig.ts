@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "FixHouse",
   description:
     "Serviços elétricos profissionais em Belo Horizonte. Instalações, reparos e manutenção com garantia e suporte rápido via WhatsApp.",
-  url: "https://www.fixhouse.com.br", // Mantido em letras minúsculas para SEO
+  url: "https://www.fixhousebh.com.br", // Mantido em letras minúsculas para SEO
   whatsappNumber: "5531998363024",
   whatsappFormatted: "(31) 99836-3024", // Alinhado com o whatsappNumber
   whatsappDefaultMessage: "Olá! Preciso de um orçamento para serviço elétrico.",
