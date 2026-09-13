@@ -188,7 +188,7 @@ export default function Footer() {
                     href="tel:+5531998363024"
                     className="text-purple-100 hover:text-white transition-colors duration-300"
                   >
-                    +55 (31) 99828-1550
+                    +55 (31) 9836-3024
                   </a>
                 </li>
               </ul>
