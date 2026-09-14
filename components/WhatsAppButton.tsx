@@ -3,14 +3,23 @@
 "use client";
 
 import React from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function WhatsAppButton() {
-  // Substitua pelo número real da empresa com DDI e DDD (ex: 5531999999999)
+  // Número da empresa com DDI e DDD
   const phoneNumber = "5531998363024";
   const message = encodeURIComponent(
     "Olá! Vim através do site da FixHouse e gostaria de solicitar um orçamento.",
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
+  const handleClick = () => {
+    // Dispara a conversão para o Google Analytics / Google Ads
+    sendGAEvent({
+      event: "generate_lead",
+      value: "whatsapp_flutuante",
+    });
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
@@ -18,6 +27,7 @@ export default function WhatsAppButton() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleClick}
         className="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 transform hover:scale-110 group"
         aria-label="Fale conosco pelo WhatsApp"
         title="Fale conosco pelo WhatsApp"

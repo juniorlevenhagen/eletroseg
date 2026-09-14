@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { siteConfig } from "@/config/siteConfig";
@@ -64,7 +65,7 @@ export default function RootLayout({
     "@type": "Electrician",
     name: siteConfig.shortName,
     image: `${siteConfig.url}/images/logo_FixHouse.svg`,
-    telephone: siteConfig.whatsappFormatted, // Garanta que esteja no formato +5531...
+    telephone: siteConfig.whatsappFormatted,
     url: siteConfig.url,
     address: {
       "@type": "PostalAddress",
@@ -106,6 +107,9 @@ export default function RootLayout({
         <WhatsAppButton />
 
         {children}
+
+        {/* Rastreamento do Google Analytics / Ads */}
+        <GoogleAnalytics gaId="AW-386276998" />
       </body>
     </html>
   );
