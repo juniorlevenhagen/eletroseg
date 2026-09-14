@@ -1,7 +1,10 @@
+// src/components/ServiceArea.tsx
+
 "use client";
 
 import React from "react";
 import { MapPin, Navigation, Clock } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function ServiceArea() {
   const bairrosAtendidos = [
@@ -15,6 +18,13 @@ export default function ServiceArea() {
     "Belvedere",
     "Vila da Serra",
   ];
+
+  const handleWhatsappClick = () => {
+    sendGAEvent({
+      event: "generate_lead",
+      value: "service_area_whatsapp",
+    });
+  };
 
   return (
     <section
@@ -89,6 +99,7 @@ export default function ServiceArea() {
               href="https://wa.me/5531998363024?text=Olá!%20Gostaria%20de%20saber%20se%20atendem%20o%20meu%20bairro."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleWhatsappClick}
               className="text-[#421F60] dark:text-[#421F60] font-bold underline inline-block hover:text-purple-700 transition-colors"
             >
               Consulte disponibilidade pelo WhatsApp

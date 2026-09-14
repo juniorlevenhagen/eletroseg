@@ -4,12 +4,20 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleWhatsappClick = (origem: string) => {
+    sendGAEvent({
+      event: "generate_lead",
+      value: origem,
+    });
   };
 
   return (
@@ -23,7 +31,8 @@ const Navbar: React.FC = () => {
               width={150}
               height={75}
               priority
-              className="w-[150px] h-auto"
+              style={{ height: "auto" }}
+              className="w-[150px]"
             />
           </div>
 
@@ -49,6 +58,7 @@ const Navbar: React.FC = () => {
               href="https://wa.me/5531998363024?text=Olá!%20Preciso%20de%20atendimento%20rápido%20para%20um%20serviço%20elétrico."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => handleWhatsappClick("navbar_desktop")}
               className="bg-[#FFCC00] text-[#361254] rounded-md font-semibold text-sm py-2 px-4 hover:bg-[#F1C100] transition-colors cursor-pointer shadow-sm flex items-center justify-center gap-2"
             >
               Atendimento Rápido
@@ -120,7 +130,10 @@ const Navbar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-[#FFCC00] text-[#361254] py-2.5 px-4 rounded font-semibold hover:bg-[#F1C100] transition-colors text-center"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  handleWhatsappClick("navbar_mobile");
+                }}
               >
                 Atendimento Rápido
               </a>

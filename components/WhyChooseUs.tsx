@@ -12,6 +12,7 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function WhyChooseUs() {
   const diferenciais = [
@@ -58,6 +59,13 @@ export default function WhyChooseUs() {
       icone: Zap,
     },
   ];
+
+  const handleWhatsappClick = () => {
+    sendGAEvent({
+      event: "generate_lead",
+      value: "why_choose_us_whatsapp",
+    });
+  };
 
   return (
     <section
@@ -123,6 +131,7 @@ export default function WhyChooseUs() {
                 href="https://wa.me/5531998363024?text=Olá!%20Quero%20solicitar%20um%20orçamento."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleWhatsappClick}
                 className="inline-flex items-center justify-center gap-2 bg-[#421F60] hover:bg-[#32174a] text-white font-semibold py-3.5 px-8 sm:px-12 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base text-center"
               >
                 <span>Fazer Orçamento sem Compromisso</span>

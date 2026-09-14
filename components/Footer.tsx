@@ -4,27 +4,33 @@
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { MapPin, Phone, X } from "lucide-react";
+import { MapPin, Phone, X, ChevronUp } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [showScrollTop, setShowScrollTop] = useState(false);
-
-  // Estados para abrir/fechar os modais de Termos e Privacidade
   const [showTermos, setShowTermos] = useState(false);
   const [showPrivacidade, setShowPrivacidade] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
+      setShowScrollTop(window.scrollY > 300);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Trata tecla ESC para fechar modais
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setShowTermos(false);
+        setShowPrivacidade(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
@@ -41,7 +47,8 @@ export default function Footer() {
                   width={200}
                   height={120}
                   priority
-                  className="w-[200px] h-auto"
+                  style={{ height: "auto" }}
+                  className="w-[200px]"
                 />
               </div>
               <p className="text-purple-100 mb-6 leading-relaxed">
@@ -73,58 +80,27 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Coluna 2 - Serviços Adaptados */}
+            {/* Coluna 2 - Serviços */}
             <div>
               <h4 className="text-lg font-bold mb-6">Serviços</h4>
               <ul className="space-y-3">
-                <li>
-                  <a
-                    href="#services"
-                    className="text-purple-100 hover:text-white transition-colors duration-300"
-                  >
-                    Instalações e Reformas
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-purple-100 hover:text-white transition-colors duration-300"
-                  >
-                    Montagem de Quadros (QDF)
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-purple-100 hover:text-white transition-colors duration-300"
-                  >
-                    Manutenção Preventiva
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-purple-100 hover:text-white transition-colors duration-300"
-                  >
-                    Revisão e Diagnóstico
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-purple-100 hover:text-white transition-colors duration-300"
-                  >
-                    Otimização de Cargas
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-purple-100 hover:text-white transition-colors duration-300"
-                  >
-                    Atendimento de Emergência
-                  </a>
-                </li>
+                {[
+                  "Instalações e Reformas",
+                  "Montagem de Quadros (QDF)",
+                  "Manutenção Preventiva",
+                  "Revisão e Diagnóstico",
+                  "Otimização de Cargas",
+                  "Atendimento de Emergência",
+                ].map((service, index) => (
+                  <li key={index}>
+                    <a
+                      href="#services"
+                      className="text-purple-100 hover:text-white transition-colors duration-300"
+                    >
+                      {service}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -229,23 +205,11 @@ export default function Footer() {
           aria-label="Voltar ao topo"
           className={`bg-[#421F60] text-white p-3 rounded-full shadow-lg border border-purple-400/30 hover:bg-[#522778] transition-all duration-300 ${
             showScrollTop
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+              ? "opacity-100 pointer-events-auto scale-100"
+              : "opacity-0 pointer-events-none scale-90"
           }`}
         >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
+          <ChevronUp className="w-5 h-5" />
         </button>
       </div>
 
@@ -256,6 +220,8 @@ export default function Footer() {
         <div
           className="fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setShowTermos(false)}
+          role="dialog"
+          aria-modal="true"
         >
           <div
             className="bg-white text-gray-800 rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl flex flex-col"
@@ -268,6 +234,7 @@ export default function Footer() {
               <button
                 onClick={() => setShowTermos(false)}
                 className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                aria-label="Fechar modal"
               >
                 <X size={24} />
               </button>
@@ -278,7 +245,7 @@ export default function Footer() {
               </p>
               <p>
                 Ao utilizar nosso site e serviços, você concorda com os termos
-                aqui descrevidos:
+                aqui descritos:
               </p>
               <h4 className="font-bold text-[#2C054A] pt-2">
                 1. Serviços Prestados
@@ -320,6 +287,8 @@ export default function Footer() {
         <div
           className="fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setShowPrivacidade(false)}
+          role="dialog"
+          aria-modal="true"
         >
           <div
             className="bg-white text-gray-800 rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl flex flex-col"
@@ -332,6 +301,7 @@ export default function Footer() {
               <button
                 onClick={() => setShowPrivacidade(false)}
                 className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                aria-label="Fechar modal"
               >
                 <X size={24} />
               </button>

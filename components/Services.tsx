@@ -11,6 +11,7 @@ import {
   TrendingDown,
   AlertCircle,
 } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function Services() {
   const services = [
@@ -58,6 +59,20 @@ export default function Services() {
     },
   ];
 
+  const handleServiceClick = (title: string) => {
+    // Normaliza o título para criar um identificador amigável (ex: "servico_instalacoes_e_reformas")
+    const serviceSlug = title
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]/g, "_");
+
+    sendGAEvent({
+      event: "generate_lead",
+      value: `servico_${serviceSlug}`,
+    });
+  };
+
   return (
     <section
       id="services"
@@ -76,6 +91,11 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => {
             const IconComponent = service.icon;
+            const customMessage = encodeURIComponent(
+              `Olá! Gostaria de um orçamento para o serviço de ${service.title}.`,
+            );
+            const whatsappUrl = `https://wa.me/5531998363024?text=${customMessage}`;
+
             return (
               <div
                 key={service.id}
@@ -95,9 +115,10 @@ export default function Services() {
                 </p>
 
                 <a
-                  href="https://wa.me/5531998363024?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20serviços."
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => handleServiceClick(service.title)}
                   className="relative inline-flex items-center gap-2 text-[#421F60] font-semibold hover:text-[#6B3FA0] transition-colors duration-300"
                 >
                   <span>Pedir Orçamento</span>
