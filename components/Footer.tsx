@@ -35,8 +35,7 @@ export default function Footer() {
   }, []);
 
   const handlePhoneClick = () => {
-    sendGAEvent({
-      event: "generate_lead",
+    sendGAEvent("event", "generate_lead", {
       event_category: "conversion",
       event_label: "footer_phone_call",
     });

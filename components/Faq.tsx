@@ -49,8 +49,7 @@ export default function Faq() {
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/[^a-z0-9]/g, "_");
 
-      sendGAEvent({
-        event: "select_content",
+      sendGAEvent("event", "select_content", {
         event_category: "faq",
         event_label: `faq_${questionSlug}`,
       });

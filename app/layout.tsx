@@ -108,8 +108,10 @@ export default function RootLayout({
 
         {children}
 
-        {/* Rastreamento do Google Analytics / Ads */}
-        <GoogleAnalytics gaId="AW-386276998" />
+        {/* Rastreamento do Google Analytics 4 */}
+        <GoogleAnalytics
+          gaId={process.env.NEXT_PUBLIC_GA_ID || "G-DZT8E2W3DX"}
+        />
       </body>
     </html>
   );

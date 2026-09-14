@@ -67,8 +67,7 @@ export default function Services() {
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/[^a-z0-9]/g, "_");
 
-    sendGAEvent({
-      event: "generate_lead",
+    sendGAEvent("event", "generate_lead", {
       event_category: "conversion",
       event_label: `servico_${serviceSlug}`,
     });

@@ -15,8 +15,7 @@ export default function WhatsAppButton() {
 
   const handleClick = () => {
     // Dispara a conversão para o Google Analytics / Google Ads
-    sendGAEvent({
-      event: "generate_lead",
+    sendGAEvent("event", "generate_lead", {
       event_category: "conversion",
       event_label: "whatsapp_flutuante",
     });
