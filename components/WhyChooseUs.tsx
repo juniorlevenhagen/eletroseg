@@ -63,7 +63,8 @@ export default function WhyChooseUs() {
   const handleWhatsappClick = () => {
     sendGAEvent({
       event: "generate_lead",
-      value: "why_choose_us_whatsapp",
+      event_category: "conversion",
+      event_label: "why_choose_us_whatsapp",
     });
   };
 

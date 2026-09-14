@@ -17,7 +17,8 @@ export default function WhatsAppButton() {
     // Dispara a conversão para o Google Analytics / Google Ads
     sendGAEvent({
       event: "generate_lead",
-      value: "whatsapp_flutuante",
+      event_category: "conversion",
+      event_label: "whatsapp_flutuante",
     });
   };
 

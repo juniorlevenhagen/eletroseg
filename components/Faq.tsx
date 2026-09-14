@@ -4,6 +4,7 @@
 
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -37,7 +38,23 @@ export default function Faq() {
   ];
 
   const toggleFaq = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    const isOpening = openIndex !== index;
+    setOpenIndex(isOpening ? index : null);
+
+    // Dispara o evento apenas quando o usuário abre uma pergunta
+    if (isOpening) {
+      const questionSlug = faqs[index].pergunta
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]/g, "_");
+
+      sendGAEvent({
+        event: "select_content",
+        event_category: "faq",
+        event_label: `faq_${questionSlug}`,
+      });
+    }
   };
 
   return (
@@ -53,33 +70,37 @@ export default function Faq() {
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-purple-100 rounded-xl overflow-hidden transition-all duration-200"
-            >
-              <button
-                onClick={() => toggleFaq(index)}
-                className="w-full flex justify-between items-center p-5 text-left bg-white hover:bg-purple-50/50 transition-colors duration-200"
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                className="border border-purple-100 rounded-xl overflow-hidden transition-all duration-200"
               >
-                <span className="font-semibold text-[#2C054A] text-base md:text-lg">
-                  {faq.pergunta}
-                </span>
-                <ChevronDown
-                  className={`text-[#421F60] transition-transform duration-300 flex-shrink-0 ml-4 ${
-                    openIndex === index ? "transform rotate-180" : ""
-                  }`}
-                  size={20}
-                />
-              </button>
+                <button
+                  onClick={() => toggleFaq(index)}
+                  aria-expanded={isOpen}
+                  className="w-full flex justify-between items-center p-5 text-left bg-white hover:bg-purple-50/50 transition-colors duration-200"
+                >
+                  <span className="font-semibold text-[#2C054A] text-base md:text-lg">
+                    {faq.pergunta}
+                  </span>
+                  <ChevronDown
+                    className={`text-[#421F60] transition-transform duration-300 flex-shrink-0 ml-4 ${
+                      isOpen ? "transform rotate-180" : ""
+                    }`}
+                    size={20}
+                  />
+                </button>
 
-              {openIndex === index && (
-                <div className="p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t border-purple-50 bg-purple-50/30">
-                  {faq.resposta}
-                </div>
-              )}
-            </div>
-          ))}
+                {isOpen && (
+                  <div className="p-5 pt-0 text-gray-600 text-sm leading-relaxed border-t border-purple-50 bg-purple-50/30">
+                    {faq.resposta}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -69,7 +69,8 @@ export default function Services() {
 
     sendGAEvent({
       event: "generate_lead",
-      value: `servico_${serviceSlug}`,
+      event_category: "conversion",
+      event_label: `servico_${serviceSlug}`,
     });
   };
 

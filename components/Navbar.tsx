@@ -14,9 +14,9 @@ const Navbar: React.FC = () => {
   };
 
   const handleWhatsappClick = (origem: string) => {
-    sendGAEvent({
-      event: "generate_lead",
-      value: origem,
+    sendGAEvent("event", "generate_lead", {
+      event_category: "conversion",
+      event_label: origem,
     });
   };
 

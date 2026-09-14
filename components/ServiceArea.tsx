@@ -22,7 +22,8 @@ export default function ServiceArea() {
   const handleWhatsappClick = () => {
     sendGAEvent({
       event: "generate_lead",
-      value: "service_area_whatsapp",
+      event_category: "conversion",
+      event_label: "service_area_whatsapp",
     });
   };
 

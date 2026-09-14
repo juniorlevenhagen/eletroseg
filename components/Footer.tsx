@@ -5,6 +5,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { MapPin, Phone, X, ChevronUp } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -32,6 +33,14 @@ export default function Footer() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
+
+  const handlePhoneClick = () => {
+    sendGAEvent({
+      event: "generate_lead",
+      event_category: "conversion",
+      event_label: "footer_phone_call",
+    });
+  };
 
   return (
     <footer className="w-full bg-[#2C054A] text-white relative">
@@ -162,6 +171,7 @@ export default function Footer() {
                   <Phone size={20} className="text-[#FFCC00] flex-shrink-0" />
                   <a
                     href="tel:+5531998363024"
+                    onClick={handlePhoneClick}
                     className="text-purple-100 hover:text-white transition-colors duration-300"
                   >
                     +55 (31) 99836-3024
