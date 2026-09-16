@@ -60,13 +60,12 @@ export default function WhyChooseUs() {
     },
   ];
 
-  const handleWhatsappClick = () => {
-    sendGAEvent({
-      event: "generate_lead",
-      event_category: "conversion",
-      event_label: "why_choose_us_whatsapp",
-    });
-  };
+const handleWhatsappClick = () => {
+  sendGAEvent("event", "generate_lead", {
+    event_category: "conversion",
+    event_label: "why_choose_us_whatsapp",
+  });
+};
 
   return (
     <section

@@ -19,13 +19,12 @@ export default function ServiceArea() {
     "Vila da Serra",
   ];
 
-  const handleWhatsappClick = () => {
-    sendGAEvent({
-      event: "generate_lead",
-      event_category: "conversion",
-      event_label: "service_area_whatsapp",
-    });
-  };
+const handleWhatsappClick = () => {
+  sendGAEvent("event", "generate_lead", {
+    event_category: "conversion",
+    event_label: "service_area_whatsapp",
+  });
+};
 
   return (
     <section
