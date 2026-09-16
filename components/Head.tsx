@@ -7,7 +7,9 @@ import { sendGAEvent } from "@next/third-parties/google";
 
 export default function Head() {
   const handleWhatsappClick = () => {
-    sendGAEvent("event", "generate_lead", {
+    sendGAEvent({
+      event: "generate_lead",
+      value: "hero_whatsapp",
       event_category: "conversion",
       event_label: "hero_whatsapp",
     });
