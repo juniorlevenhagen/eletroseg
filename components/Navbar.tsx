@@ -13,12 +13,13 @@ const Navbar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleWhatsappClick = (origem: string) => {
-    sendGAEvent("event", "generate_lead", {
-      event_category: "conversion",
-      event_label: origem,
-    });
-  };
+ const handleWhatsappClick = (origem: string) => {
+   sendGAEvent({
+     event: "generate_lead",
+     event_category: "conversion",
+     event_label: origem,
+   });
+ };
 
   return (
     <nav className="bg-[#2C054A] shadow-md w-full fixed top-0 left-0 z-50 border-b border-purple-900/50">

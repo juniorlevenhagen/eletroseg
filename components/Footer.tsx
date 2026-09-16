@@ -34,12 +34,13 @@ export default function Footer() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const handlePhoneClick = () => {
-    sendGAEvent("event", "generate_lead", {
-      event_category: "conversion",
-      event_label: "footer_phone_call",
-    });
-  };
+const handlePhoneClick = () => {
+  sendGAEvent({
+    event: "generate_lead",
+    event_category: "conversion",
+    event_label: "footer_phone_call",
+  });
+};
 
   return (
     <footer className="w-full bg-[#2C054A] text-white relative">

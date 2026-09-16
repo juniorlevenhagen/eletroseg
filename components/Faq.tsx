@@ -41,7 +41,6 @@ export default function Faq() {
     const isOpening = openIndex !== index;
     setOpenIndex(isOpening ? index : null);
 
-    // Dispara o evento apenas quando o usuário abre uma pergunta
     if (isOpening) {
       const questionSlug = faqs[index].pergunta
         .toLowerCase()
@@ -49,7 +48,8 @@ export default function Faq() {
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/[^a-z0-9]/g, "_");
 
-      sendGAEvent("event", "select_content", {
+      sendGAEvent({
+        event: "select_content",
         event_category: "faq",
         event_label: `faq_${questionSlug}`,
       });

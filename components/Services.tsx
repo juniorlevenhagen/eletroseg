@@ -59,19 +59,19 @@ export default function Services() {
     },
   ];
 
-  const handleServiceClick = (title: string) => {
-    // Normaliza o título para criar um identificador amigável (ex: "servico_instalacoes_e_reformas")
-    const serviceSlug = title
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]/g, "_");
+const handleServiceClick = (title: string) => {
+  const serviceSlug = title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]/g, "_");
 
-    sendGAEvent("event", "generate_lead", {
-      event_category: "conversion",
-      event_label: `servico_${serviceSlug}`,
-    });
-  };
+  sendGAEvent({
+    event: "generate_lead",
+    event_category: "conversion",
+    event_label: `servico_${serviceSlug}`,
+  });
+};
 
   return (
     <section

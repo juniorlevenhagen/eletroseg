@@ -14,8 +14,8 @@ export default function WhatsAppButton() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   const handleClick = () => {
-    // Dispara a conversão para o Google Analytics / Google Ads
-    sendGAEvent("event", "generate_lead", {
+    sendGAEvent({
+      event: "generate_lead",
       event_category: "conversion",
       event_label: "whatsapp_flutuante",
     });

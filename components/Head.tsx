@@ -6,14 +6,13 @@ import Image from "next/image";
 import { sendGAEvent } from "@next/third-parties/google";
 
 export default function Head() {
-  const handleWhatsappClick = () => {
-    sendGAEvent({
-      event: "generate_lead",
-      value: "hero_whatsapp",
-      event_category: "conversion",
-      event_label: "hero_whatsapp",
-    });
-  };
+const handleWhatsappClick = () => {
+  sendGAEvent({
+    event: "generate_lead",
+    event_category: "conversion",
+    event_label: "hero_whatsapp",
+  });
+};
 
   return (
     <section className="w-full min-h-[80vh] flex items-center pt-36 pb-12 md:pt-36 md:pb-16 bg-[url(/images/fundo_bh.png)] bg-cover bg-no-repeat bg-center bg-[#2C054A] bg-blend-multiply">
