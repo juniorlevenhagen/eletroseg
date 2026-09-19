@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.shortName }],
   creator: siteConfig.shortName,
