@@ -66,7 +66,7 @@ const handlePhoneClick = () => {
 
               <div className="flex flex-col items-start gap-2">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/fixhousebh/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#421F60] transition-colors duration-300 group shadow-sm"
